@@ -1,0 +1,29 @@
+# Python 
+__pycache__/ 
+*.py[cod] 
+*$py.class 
+ 
+# Environment 
+.env 
+.venv 
+venv/ 
+ 
+# Database 
+*.db 
+*.sqlite3 
+ 
+# Docker 
+docker-compose.override.yml 
+ 
+# Logs 
+*.log 
+logs/ 
+ 
+# IDE 
+.vscode/ 
+.idea/ 
+*.swp 
+ 
+# OS 
+.DS_Store 
+Thumbs.db 

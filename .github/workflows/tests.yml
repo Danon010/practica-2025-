@@ -1,0 +1,39 @@
+name: Tests 
+ 
+on: [push, pull_request] 
+ 
+jobs: 
+  test: 
+    runs-on: ubuntu-latest 
+ 
+    services: 
+      postgres: 
+        image: postgres:13 
+        env: 
+          POSTGRES_PASSWORD: postgres 
+        ports: 
+          - 5432:5432 
+ 
+      redis: 
+        image: redis:7 
+        ports: 
+          - 6379:6379 
+ 
+    steps: 
+    - uses: actions/checkout@v3 
+ 
+    - name: Set up Python 
+      uses: actions/setup-python@v4 
+      with: 
+        python-version: '3.9' 
+ 
+    - name: Install dependencies 
+      run: | 
+        cd backend 
+        pip install -r requirements.txt 
+ 
+    - name: Test imports 
+      run: | 
+        cd backend 
+        python -c "from app.main import app; print('Main app imports successfully')" 
+        python -c "from app.tasks import celery; print('Celery imports successfully')" 
