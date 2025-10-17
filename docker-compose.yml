@@ -42,3 +42,14 @@ services:
     environment:
       - DATABASE_URL=postgresql://scanner_user:scanner_pass@db:5432/scanner_db
       - REDIS_URL=redis://redis:6379/0
+    frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
