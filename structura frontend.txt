@@ -1,0 +1,15 @@
+vuln-scanner-frontend/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── Dashboard/
+│   │   ├── Scans/
+│   │   ├── Vulnerabilities/
+│   │   ├── Auth/
+│   │   └── Common/
+│   ├── services/
+│   ├── styles/
+│   ├── utils/
+│   └── App.js
+├── package.json
+└── requirements.txt (для Python бэкенда)
